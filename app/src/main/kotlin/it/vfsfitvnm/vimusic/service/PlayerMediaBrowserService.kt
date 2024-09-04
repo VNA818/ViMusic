@@ -88,9 +88,8 @@ class PlayerMediaBrowserService : MediaBrowserService(), ServiceConnection {
                     )
 
                     MediaId.songs -> Database
-                        .songsByPlayTimeDesc()
+                        .songsByRowIdDesc()
                         .first()
-                        .take(30)
                         .also { lastSongs = it }
                         .map { it.asBrowserMediaItem }
                         .toMutableList()
